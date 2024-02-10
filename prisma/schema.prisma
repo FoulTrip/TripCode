@@ -1,0 +1,173 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mongodb"
+    url      = env("NEXT_PUBLIC_MONGODB_URI")
+}
+
+model Client {
+    id             String           @id @default(uuid()) @map("_id")
+    firstname      String
+    lastname       String
+    password       String
+    email          String           @unique
+    avatar         String?
+    phone          String
+    projects       Project[]
+    MeetingRequest MeetingRequest[]
+    createdAt      DateTime         @default(now())
+    updatedAt      DateTime         @updatedAt
+}
+
+model SoftwareEngineer {
+    id        String                    @id @default(uuid()) @map("_id")
+    firstname String
+    lastname  String
+    email     String                    @unique
+    password  String
+    phone     String
+    github    String
+    avatar    String?
+    role      ProgrammerRole            @default(notDefined)
+    projects  SoftwareEngineerProject[]
+    Commit    Commit[]
+    Project   Project[]
+    createdAt DateTime                  @default(now())
+    updatedAt DateTime                  @updatedAt
+}
+
+model ProjectManager {
+    id             String                  @id @default(uuid()) @map("_id")
+    firstname      String
+    lastname       String
+    password       String
+    email          String                  @unique
+    phone          String
+    avatar         String?
+    projects       ProjectManagerProject[]
+    MeetingRequest MeetingRequest[]
+    Projects       Project?                @relation(fields: [projectId], references: [id])
+    projectId      String?
+    createdAt      DateTime                @default(now())
+    updatedAt      DateTime                @updatedAt
+}
+
+model MeetingRequest {
+    id           String               @id @default(uuid()) @map("_id")
+    client       Client               @relation(fields: [clientId], references: [id])
+    clientId     String
+    manager      ProjectManager       @relation(fields: [managerId], references: [id])
+    managerId    String               @default("looking")
+    timestamp    String               @default("Not Available")
+    status       MeetingStatus        @default(pending)
+    requirements ProjectRequirement[]
+    meetingLink  String               @default("Not Available")
+    createdAt    DateTime             @default(now())
+    updatedAt    DateTime             @updatedAt
+}
+
+model ProjectRequirement {
+    id               String          @id @default(uuid()) @map("_id")
+    requirement      String
+    dueDate          DateTime?
+    MeetingRequest   MeetingRequest? @relation(fields: [meetingRequestId], references: [id])
+    meetingRequestId String?
+    Project          Project?        @relation(fields: [projectId], references: [id])
+    projectId        String?
+    createdAt        DateTime        @default(now())
+    updatedAt        DateTime        @updatedAt
+}
+
+model Project {
+    id                 String                    @id @default(uuid()) @map("_id")
+    name               String
+    description        String
+    status             ProjectStatus             @default(planning)
+    dockerized         DockerStatus              @default(false)
+    client             Client                    @relation(fields: [clientId], references: [id])
+    clientId           String
+    commits            Commit[]
+    engineers          SoftwareEngineerProject[]
+    managers           ProjectManagerProject[]
+    ProjectHistory     ProjectHistory[]
+    requirements       ProjectRequirement[]
+    SoftwareEngineer   SoftwareEngineer?         @relation(fields: [softwareEngineerId], references: [id])
+    softwareEngineerId String?
+    ProjectManager     ProjectManager[]
+    createdAt          DateTime                  @default(now())
+    updatedAt          DateTime                  @updatedAt
+}
+
+model SoftwareEngineerProject {
+    id                 String           @id @default(uuid()) @map("_id")
+    softwareEngineerId String
+    projectId          String
+    softwareEngineer   SoftwareEngineer @relation(fields: [softwareEngineerId], references: [id])
+    project            Project          @relation(fields: [projectId], references: [id])
+    createdAt          DateTime         @default(now())
+    updatedAt          DateTime         @updatedAt
+}
+
+model ProjectManagerProject {
+    id               String         @id @default(uuid()) @map("_id")
+    projectManagerId String
+    projectId        String
+    projectManager   ProjectManager @relation(fields: [projectManagerId], references: [id])
+    project          Project        @relation(fields: [projectId], references: [id])
+}
+
+model ProjectHistory {
+    id             String   @id @default(uuid()) @map("_id")
+    project        Project  @relation(fields: [projectId], references: [id])
+    projectId      String
+    description    String
+    developers     String
+    commits        String
+    completionDate DateTime
+}
+
+model Commit {
+    id        String           @id @default(uuid()) @map("_id")
+    message   String
+    changes   String
+    author    SoftwareEngineer @relation(fields: [authorId], references: [id])
+    authorId  String
+    timestamp DateTime         @default(now())
+    project   Project          @relation(fields: [projectId], references: [id])
+    projectId String
+    branch    String
+    files     File[]
+}
+
+model File {
+    id       String @id @default(uuid()) @map("_id")
+    name     String
+    changes  String
+    commit   Commit @relation(fields: [commitId], references: [id])
+    commitId String
+}
+
+enum ProgrammerRole {
+    notDefined
+    frontendEngineer
+    backendEngineer
+}
+
+enum ProjectStatus {
+    planning
+    development
+    deployment
+}
+
+enum DockerStatus {
+    false
+    true
+}
+
+enum MeetingStatus {
+    pending
+    scheduled
+    completed
+}
