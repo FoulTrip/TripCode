@@ -1,4 +1,3 @@
-import ClientService from "@/classes/ClientServices";
 import SoftwareEngineerService from "@/classes/SoftwareEngineerService";
 import { ScalarSoftwareEngineer } from "@/types/Schema";
 import { NextResponse } from "next/server";
@@ -25,8 +24,10 @@ export async function POST(req: Request) {
       github,
     });
 
-    return NextResponse.json(newClient);
+    return NextResponse.json({ success: true, data: newClient });
   } catch (error) {
-    return NextResponse.json(error);
+    console.log(error);
+    if (error instanceof Error)
+      return NextResponse.json({ success: true, error: error.message });
   }
 }

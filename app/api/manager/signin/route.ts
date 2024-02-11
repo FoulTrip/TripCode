@@ -15,12 +15,16 @@ export async function POST(req: Request) {
     const secret = process.env.JWT_SECRET as string;
     const token = TokenService.createToken(payload, secret);
 
-    // onsole.log(token)
+    const loginRes = {
+      ...user,
+      token,
+    };
 
-    return NextResponse.json({ ...user, token });
+    return NextResponse.json({ success: true, data: loginRes });
   } catch (error) {
+    console.log(error);
     if (error instanceof Error) {
-      return NextResponse.json({ error: error.message });
+      return NextResponse.json({ success: false, error: error.message });
     }
   }
 }

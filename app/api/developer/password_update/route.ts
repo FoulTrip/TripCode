@@ -5,12 +5,16 @@ import { NextResponse } from "next/server";
 export async function PUT(req: Request) {
   try {
     const { id, password } = await req.json();
-    const updatedClient = await SoftwareEngineerService.updatePassword(id, password);
+    const updatedClient = await SoftwareEngineerService.updatePassword(
+      id,
+      password
+    );
 
-    return NextResponse.json(updatedClient);
+    return NextResponse.json({ success: true, data: updatedClient });
   } catch (error) {
+    console.log(error);
     if (error instanceof Error) {
-      return NextResponse.json({ error: error.message });
+      return NextResponse.json({ success: false, error: error.message });
     }
   }
 }

@@ -22,8 +22,11 @@ export async function POST(req: Request) {
       avatar,
     });
 
-    return NextResponse.json(newClient);
+    return NextResponse.json({ success: true, data: newClient });
   } catch (error) {
-    return NextResponse.json(error);
+    console.log(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ success: false, error: error.message });
+    }
   }
 }

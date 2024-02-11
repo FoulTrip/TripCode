@@ -29,10 +29,10 @@ export async function DELETE(req: Request) {
     const { id } = await req.json();
     const deletedClient = await ProjectManagerServices.delete(id);
 
-    return NextResponse.json(deletedClient);
+    return NextResponse.json({ success: true, data: deletedClient });
   } catch (error) {
     if (error instanceof Error) {
-      return NextResponse.json({ error: error.message });
+      return NextResponse.json({ success: false, error: error.message });
     }
   }
 }

@@ -40,10 +40,11 @@ export async function PUT(req: Request) {
       avatar,
     });
 
-    return NextResponse.json(updatedClient);
+    return NextResponse.json({ success: true, data: updatedClient });
   } catch (error) {
     if (error instanceof Error) {
-      return NextResponse.json({ error: error.message });
+      console.log(error);
+      return NextResponse.json({ success: false, error: error.message });
     }
   }
 }

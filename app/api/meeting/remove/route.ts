@@ -28,8 +28,10 @@ export async function DELETE(req: Request) {
 
     const deletedMeetingRequest = await MeetingRequestService.delete(id);
 
-    return NextResponse.json(deletedMeetingRequest);
+    return NextResponse.json({ success: true, data: deletedMeetingRequest });
   } catch (error) {
-    return NextResponse.json(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ success: false, error: error.message });
+    }
   }
 }

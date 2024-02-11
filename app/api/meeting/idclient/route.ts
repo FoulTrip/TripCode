@@ -29,8 +29,10 @@ export async function POST(req: Request) {
 
     const meetingRequests = await MeetingRequestService.getByClient(clientId);
 
-    return NextResponse.json(meetingRequests);
+    return NextResponse.json({ success: true, data: meetingRequests });
   } catch (error) {
-    return NextResponse.json(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ success: false, error: error.message });
+    }
   }
 }

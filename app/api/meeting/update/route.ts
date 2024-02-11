@@ -42,8 +42,10 @@ export async function PUT(req: Request) {
       meetingLink,
     });
 
-    return NextResponse.json(updatedMeetingRequest);
+    return NextResponse.json({ success: true, data: updatedMeetingRequest });
   } catch (error) {
-    return NextResponse.json(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ success: false, error: error.message });
+    }
   }
 }

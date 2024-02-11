@@ -71,7 +71,6 @@ model MeetingRequest {
 model ProjectRequirement {
     id               String          @id @default(uuid()) @map("_id")
     requirement      String
-    dueDate          DateTime?
     MeetingRequest   MeetingRequest? @relation(fields: [meetingRequestId], references: [id])
     meetingRequestId String?
     Project          Project?        @relation(fields: [projectId], references: [id])

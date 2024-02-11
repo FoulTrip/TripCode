@@ -53,31 +53,17 @@ export type ScalarMeetingRequest = {
 };
 
 export type ProjectRequirement = {
-  id: string;
+  id?: string;
   requirement: string;
-  dueDate?: Date | null;
-  MeetingRequest?: ScalarMeetingRequest | null;
-  meetingRequestId?: string | null;
-  Project?: Project | null;
-  projectId?: string | null;
 };
 
-export type Project = {
-  id: string;
+export type ScalarProject = {
+  id?: string;
   name: string;
   description: string;
   status: ProjectStatus;
   dockerized: DockerStatus;
-  client: ScalarClient;
   clientId: string;
-  commits: Commit[];
-  engineers: SoftwareEngineerProject[];
-  managers: ProjectManagerProject[];
-  ProjectHistory: ProjectHistory[];
-  requirements: ProjectRequirement[];
-  SoftwareEngineer?: ScalarSoftwareEngineer | null;
-  softwareEngineerId?: string | null;
-  ProjectManager: ScalarProjectManager[];
 };
 
 export type SoftwareEngineerProject = {
@@ -85,7 +71,7 @@ export type SoftwareEngineerProject = {
   softwareEngineerId: string;
   projectId: string;
   softwareEngineer: ScalarSoftwareEngineer;
-  project: Project;
+  project: ScalarProject;
 };
 
 export type ProjectManagerProject = {
@@ -93,12 +79,12 @@ export type ProjectManagerProject = {
   projectManagerId: string;
   projectId: string;
   projectManager: ScalarProjectManager;
-  project: Project;
+  project: ScalarProject;
 };
 
 export type ProjectHistory = {
   id: string;
-  project: Project;
+  project: ScalarProject;
   projectId: string;
   description: string;
   developers: string;
@@ -106,23 +92,20 @@ export type ProjectHistory = {
   completionDate: Date;
 };
 
-export type Commit = {
-  id: string;
+export type ScalarCommit = {
+  id?: string;
   message: string;
   changes: string;
-  author: ScalarSoftwareEngineer;
   authorId: string;
   timestamp: Date;
-  project: Project;
   projectId: string;
   branch: string;
-  files: File[];
 };
 
 export type File = {
   id: string;
   name: string;
   changes: string;
-  commit: Commit;
+  commit: ScalarCommit;
   commitId: string;
 };

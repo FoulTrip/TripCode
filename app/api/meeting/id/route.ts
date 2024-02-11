@@ -32,8 +32,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Solicitud de reunión no encontrada" });
     }
 
-    return NextResponse.json(meetingRequest);
+    return NextResponse.json({ success: true, data: meetingRequest });
   } catch (error) {
-    return NextResponse.json(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ success: false, error: error.message });
+    }
   }
 }

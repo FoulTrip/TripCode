@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     if (!decodedToken) {
       return NextResponse.json({ message: "Token no válido" }, { status: 401 });
     }
-    
+
     const { clientId }: ScalarMeetingRequest = await req.json();
 
     // Verificar si el usuario que hace la solicitud es un Cliente válido
@@ -36,8 +36,10 @@ export async function POST(req: Request) {
       clientId,
     });
 
-    return NextResponse.json(newMeetingRequest);
+    return NextResponse.json({ success: true, data: newMeetingRequest });
   } catch (error) {
-    return NextResponse.json(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ success: false, error: error.message });
+    }
   }
 }

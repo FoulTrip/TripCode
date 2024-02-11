@@ -28,8 +28,10 @@ export async function GET(req: Request) {
     // Obtener todas las reuniones creadas por todos los clientes
     const meetingRequests = await MeetingRequestService.getAll();
 
-    return NextResponse.json(meetingRequests);
+    return NextResponse.json({ success: true, data: meetingRequests });
   } catch (error) {
-    return NextResponse.json(error);
+    if (error instanceof Error) {
+      return NextResponse.json({ success: false, error: error.message });
+    }
   }
 }
