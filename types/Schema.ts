@@ -2,7 +2,8 @@
 export type ProgrammerRole =
   | "notDefined"
   | "frontendEngineer"
-  | "backendEngineer";
+  | "backendEngineer"
+  | "projectManager";
 
 export type ProjectStatus = "planning" | "development" | "deployment";
 
@@ -33,6 +34,19 @@ export type ScalarSoftwareEngineer = {
   role?: ProgrammerRole;
 };
 
+export type AuthSession = {
+  id?: string;
+  firstname?: string;
+  lastname?: string;
+  password: string;
+  email: string;
+  phone: string;
+  avatar?: string | null | undefined;
+  github?: string;
+  role?: ProgrammerRole;
+  token: string;
+};
+
 export type ScalarProjectManager = {
   id?: string;
   password: string;
@@ -41,6 +55,7 @@ export type ScalarProjectManager = {
   lastname: string;
   phone: string;
   avatar: string | null | undefined;
+  role?: ProgrammerRole;
 };
 
 export type ScalarMeetingRequest = {
@@ -55,6 +70,8 @@ export type ScalarMeetingRequest = {
 export type ProjectRequirement = {
   id?: string;
   requirement: string;
+  meetingRequestId: string;
+  projectId: string;
 };
 
 export type ScalarProject = {
@@ -63,6 +80,8 @@ export type ScalarProject = {
   description: string;
   status: ProjectStatus;
   dockerized: DockerStatus;
+  engineers: string[];
+  ProjectManagerId: string;
   clientId: string;
 };
 

@@ -6,6 +6,9 @@ import bcrypt from "bcryptjs";
 
 // Service class for managing Project Managers
 class ProjectManagerServices {
+  static getProjectsBySoftwareEngineerId(softwareEngineerId: any) {
+      throw new Error("Method not implemented.");
+  }
   /**
    * Create a new Project Manager.
    * @param data - The data for creating a new Project Manager.

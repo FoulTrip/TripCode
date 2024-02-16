@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  position: fixed;
+  top: 0; /* Lo fija en la parte superior */
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.logo {
+  flex-basis: 400px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  background: transparent;
+}
+
+.imageLogo {
+  display: grid;
+  place-content: center;
+}
+
+.menuIcon {
+  display: grid;
+  place-content: center;
+}
+
+.iconLogo {
+  width: 40px;
+  height: 40px;
+}
+
+.logoTitle {
+  display: grid;
+  place-content: center;
+  font-size: 20px;
+  margin: 0;
+  color: #000;
+  text-decoration: none;
+  font-weight: 200;
+}
+
+.account {
+  display: flex;
+  flex-basis: 400px;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.subAccount {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.login {
+  margin: 0;
+  text-decoration: none;
+  color: #6c6c6c;
+  cursor: pointer;
+  border-radius: 1em;
+  font-weight: 500;
+  display: grid;
+  place-content: center;
+}
+
+.login:hover {
+  color: #000;
+}
+
+.iconOpenNav {
+  cursor: pointer;
+}
+
+.boxNavResponsive {
+  display: flex;
+  width: 100%;
+}

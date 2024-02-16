@@ -1,0 +1,266 @@
+.ComponentCurrent {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 7em;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 10px;
+}
+
+.boxProject {
+  padding: 5px 20px;
+  border-radius: 1em;
+  border: 1px solid transparent;
+  background: #f6f6f6;
+}
+
+.boxProject:hover {
+  background: var(--color-100);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-200);
+}
+
+.managerAcceptProject {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 1em;
+}
+
+.StatusAccept {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 5px 10px;
+}
+
+.statusText {
+  display: grid;
+  place-content: center;
+}
+
+.boxBtnAccept {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  background: #35f434;
+  padding: 5px 10px;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.boxBtnAccept:hover {
+  background: #0fd60f;
+}
+
+.boxBtnAccept p {
+  display: grid;
+  place-content: center;
+}
+
+.boxIconAccept {
+  display: grid;
+  place-content: center;
+}
+
+.boxBtnDecline {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-radius: 1em;
+  background: red;
+  color: #fff;
+  cursor: pointer;
+}
+
+.boxIconDecline {
+  display: grid;
+  place-content: center;
+}
+
+.nameProject {
+  color: var(--color-950);
+  margin-bottom: 10px;
+}
+
+
+.titleDescription {
+  color: var(--color-900);
+  margin: 0;
+}
+
+.textDescription {
+  color: var(--color-600);
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.personalWork {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.btnsContolls {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+  background: transparent;
+  padding: 5px;
+  border-radius: 1em;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.btnsContolls:hover {
+  background: var(--color-50);
+}
+
+.avatarClient {
+  display: grid;
+  place-content: center;
+}
+
+.blockPersonal {
+  flex-grow: 1;
+}
+
+.boxDeveloper {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.avatarDeveloper {
+  display: grid;
+  place-content: center;
+}
+
+.centerPers h5 {
+  margin: 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  /* font-weight: 00; */
+}
+
+.boxClient {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.avatarClient {
+  display: grid;
+  place-content: center;
+}
+
+.nameClient {
+  margin: 0;
+  font-size: 14.5px;
+  display: grid;
+  place-content: center;
+}
+
+.nameDeveloper {
+  margin: 0;
+}
+
+.listDevs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.supInteraction {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.btnsInteraction {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 50%;
+  gap: 10px;
+}
+
+.btnsInteraction {
+  display: flex;
+  flex-direction: row;
+}
+
+.btnProgress {
+  display: gap;
+  flex-grow: 1;
+  place-content: center;
+  margin-top: 1em;
+}
+
+.btnExit {
+  display: gap;
+  place-content: center;
+  margin-top: 1em;
+  width: 50%;
+}
+
+.centerBtnProgress {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.centerBtnExit {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+.textBtn {
+  margin: 0;
+  display: grid;
+  place-content: center;
+  font-weight: 500;
+}
+
+.centerBtnProgress:hover,
+.centerBtnExit:hover {
+  border: 1px solid var(--color-300);
+  background: var(--color-50);
+}
+
+.centerBtnExit:hover {
+  background-color: #ff0000;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.boxIconProgress {
+  display: grid;
+  place-content: center;
+}
+
+.boxIconExit {
+  display: grid;
+  place-content: center;
+}
+
+@media screen and (max-width: 700px) {
+  .ComponentCurrent {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

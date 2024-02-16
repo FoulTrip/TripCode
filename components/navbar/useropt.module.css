@@ -1,0 +1,22 @@
+.containerUser {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  cursor: pointer;
+  padding: 2px 10px;
+}
+
+.containerUser:hover {
+  background: #dadada;
+  border-radius: 1em;
+}
+
+.boxImageUser {
+  display: grid;
+  place-content: center;
+}
+
+.username {
+  display: grid;
+  place-content: center;
+}

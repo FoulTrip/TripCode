@@ -1,0 +1,103 @@
+/* barOpts.module.css */
+.BarInfoDev {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  background: var(--color-300);
+  border: 1px solid var(--color-200);
+  border-radius: 24px;
+  padding: 8px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btnCurrent,
+.btnHistory {
+  padding: 5px 10px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 1px solid transparent;
+  gap: 5px;
+}
+
+.centerInfoDev {
+  padding: 5px 10px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 1px solid transparent;
+  gap: 5px;
+}
+
+.centerInfoDev p {
+  display: grid;
+  place-content: center;
+}
+
+.centerInfoDevActive {
+  padding: 5px 10px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 1px solid transparent;
+  gap: 5px;
+  background: var(--color-100);
+}
+
+.btnCurrent:hover,
+.btnHistory:hover,
+.centerInfoDev:hover {
+  border: 1px solid var(--color-300);
+  background-color: var(--color-400);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.btnCurrentActive,
+.btnHistoryActive {
+  padding: 5px 10px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  border: 1px solid transparent;
+  gap: 5px;
+  border: 1px solid var(--color-300);
+  background-color: var(--color-100);
+  font-weight: 600;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* .btnHistory:hover,
+.centerInfoDev:hover */
+
+.infoDevBox {
+  display: grid;
+  place-content: center;
+}
+
+.boxAvatar {
+  display: grid;
+  place-content: center;
+}
+
+.textRole {
+  display: grid;
+  place-content: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 700px) {
+  .BarInfoDev {
+    width: 85%;
+    overflow: scroll;
+    scrollbar-width: none;
+  }
+}

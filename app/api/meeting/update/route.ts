@@ -27,20 +27,11 @@ export async function PUT(req: Request) {
     }
 
     const { id } = await req.json();
-
-    const {
-      managerId,
-      timestamp,
-      status,
-      meetingLink,
-    }: Partial<ScalarMeetingRequest> = await req.json();
-
-    const updatedMeetingRequest = await MeetingRequestService.update(id, {
-      managerId,
-      timestamp,
-      status,
-      meetingLink,
-    });
+    const meetingRequestData: ScalarMeetingRequest = await req.json();
+    const updatedMeetingRequest = await MeetingRequestService.updateAll(
+      id,
+      meetingRequestData
+    );
 
     return NextResponse.json({ success: true, data: updatedMeetingRequest });
   } catch (error) {

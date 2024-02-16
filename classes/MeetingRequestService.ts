@@ -5,11 +5,7 @@ import {
   ScalarClient,
   ScalarProjectManager,
 } from "@/types/Schema";
-import {
-  MeetingRequest,
-  MeetingStatus,
-  ProjectRequirement,
-} from "@prisma/client";
+import { MeetingRequest, MeetingStatus } from "@prisma/client";
 
 // Service class for managing Meeting Requests
 class MeetingRequestService {
@@ -28,26 +24,19 @@ class MeetingRequestService {
   }
 
   /**
-   * Get a Meeting Request by ID.
-   * @param id - The ID of the Meeting Request.
-   * @returns Promise<MeetingRequest | null>
-   */
-  static async get(id: string): Promise<MeetingRequest | null> {
-    return prisma.meetingRequest.findUnique({ where: { id } });
-  }
-
-  /**
-   * Update a Meeting Request's information.
+   * Update all fields of a Meeting Request by ID.
    * @param id - The ID of the Meeting Request to be updated.
-   * @param data - The partial data for updating the Meeting Request.
+   * @param data - The new data for the Meeting Request.
    * @returns Promise<MeetingRequest>
    */
-  static async update(
+  static async updateAll(
     id: string,
-    data: Partial<ScalarMeetingRequest>
+    data: ScalarMeetingRequest
   ): Promise<MeetingRequest> {
-    // Update the Meeting Request and return the result
-    return prisma.meetingRequest.update({ where: { id }, data });
+    return prisma.meetingRequest.update({
+      where: { id },
+      data,
+    });
   }
 
   /**
@@ -77,6 +66,70 @@ class MeetingRequestService {
   static async getAll(): Promise<MeetingRequest[]> {
     // Puedes agregar lógica adicional aquí si es necesario
     return prisma.meetingRequest.findMany();
+  }
+
+  /**
+   * Update the `managerId` of a Meeting Request by ID.
+   * @param id - The ID of the Meeting Request to be updated.
+   * @param managerId - The new managerId.
+   * @returns Promise<MeetingRequest>
+   */
+  static async updateManagerId(
+    id: string,
+    managerId: string
+  ): Promise<MeetingRequest> {
+    return prisma.meetingRequest.update({
+      where: { id },
+      data: { managerId },
+    });
+  }
+
+  /**
+   * Update the `status` of a Meeting Request by ID.
+   * @param id - The ID of the Meeting Request to be updated.
+   * @param status - The new status.
+   * @returns Promise<MeetingRequest>
+   */
+  static async updateStatus(
+    id: string,
+    status: MeetingStatus
+  ): Promise<MeetingRequest> {
+    return prisma.meetingRequest.update({
+      where: { id },
+      data: { status },
+    });
+  }
+
+  /**
+   * Update the `meetingLink` of a Meeting Request by ID.
+   * @param id - The ID of the Meeting Request to be updated.
+   * @param meetingLink - The new meetingLink.
+   * @returns Promise<MeetingRequest>
+   */
+  static async updateMeetingLink(
+    id: string,
+    meetingLink: string
+  ): Promise<MeetingRequest> {
+    return prisma.meetingRequest.update({
+      where: { id },
+      data: { meetingLink },
+    });
+  }
+
+  /**
+   * Update the `timestamp` of a Meeting Request by ID.
+   * @param id - The ID of the Meeting Request to be updated.
+   * @param timestamp - The new timestamp.
+   * @returns Promise<MeetingRequest>
+   */
+  static async updateTimestamp(
+    id: string,
+    timestamp: string
+  ): Promise<MeetingRequest> {
+    return prisma.meetingRequest.update({
+      where: { id },
+      data: { timestamp },
+    });
   }
 }
 

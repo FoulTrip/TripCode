@@ -1,7 +1,7 @@
 // Import necessary modules and dependencies
 import { prisma } from "@/prisma/db";
 import { DockerStatus, ScalarProject, ProjectStatus } from "@/types/Schema";
-import { Project } from "@prisma/client";
+import { Project, SoftwareEngineer } from "@prisma/client";
 
 // Service class for managing Projects
 class ProjectService {
@@ -88,6 +88,61 @@ class ProjectService {
       data: { status },
     });
   }
+
+  /**
+   * Add SoftwareEngineer ID to the array of engineers for a Project.
+   * @param projectId - The ID of the Project.
+   * @param softwareEngineerId - The ID of the Software Engineer.
+   * @returns Promise<Project>
+   */
+  static async addSoftwareEngineerToProject(
+    projectId: string,
+    softwareEngineerId: string
+  ): Promise<Project> {
+    return prisma.project.update({
+      where: { id: projectId },
+      data: {
+        engineers: {
+          set: [
+            ...((await prisma.project.findUnique({ where: { id: projectId } }))
+              ?.engineers || []),
+            softwareEngineerId,
+          ],
+        },
+      },
+    });
+  }
+
+  /**
+   * Find all projects where a SoftwareEngineer ID is involved.
+   * @param softwareEngineerId - The ID of the Software Engineer.
+   * @returns Promise<Project[]>
+   */
+  static async getProjectsBySoftwareEngineerId(
+    softwareEngineerId: string
+  ): Promise<Project[]> {
+    return prisma.project.findMany({
+      where: {
+        engineers: {
+          has: softwareEngineerId,
+        },
+      },
+    });
+  }
+
+  /**
+   * Find all projects where a SoftwareEngineer ID is involved.
+   * @param softwareEngineerId - The ID of the Software Engineer.
+   * @returns Promise<Project[]>
+   */
+  static async getProjectsByClientId(clientId: string): Promise<Project[]> {
+    return prisma.project.findMany({
+      where: {
+        clientId,
+      },
+    });
+  }
+  
 }
 
 // Export the ProjectService class
