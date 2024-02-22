@@ -7,7 +7,7 @@ import { useMediaQuery } from "@react-hook/media-query";
 
 import { useGlobalContext } from "@/context/Session";
 
-import iconLogo from "@/assets/logo-tripcode.png";
+import iconLogo from "@/assets/logo-tripcode-white.png";
 import { AiOutlineMenu } from "react-icons/ai";
 import { HiChevronDown, HiChevronDoubleUp } from "react-icons/hi";
 import Link from "next/link";

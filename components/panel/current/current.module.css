@@ -1,17 +1,27 @@
 .ComponentCurrent {
-  width: 90%;
-  margin-left: 5%;
   margin-top: 7em;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(1fr)); */
   gap: 10px;
 }
 
+.singleProject {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
 .boxProject {
+  flex-basis: 400px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
   padding: 5px 20px;
   border-radius: 1em;
   border: 1px solid transparent;
   background: #f6f6f6;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .boxProject:hover {
@@ -61,6 +71,11 @@
   place-content: center;
 }
 
+.boxBtnAccept,
+.boxBtnDecline {
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
 .boxIconAccept {
   display: grid;
   place-content: center;
@@ -75,6 +90,11 @@
   background: red;
   color: #fff;
   cursor: pointer;
+  width: 100%;
+}
+
+.boxBtnDecline:hover {
+  background: red;
 }
 
 .boxIconDecline {
@@ -86,7 +106,6 @@
   color: var(--color-950);
   margin-bottom: 10px;
 }
-
 
 .titleDescription {
   color: var(--color-900);
@@ -135,8 +154,7 @@
   flex-direction: row;
   gap: 5px;
 }
-
-.avatarDeveloper {
+.btnsSpecials .avatarDeveloper {
   display: grid;
   place-content: center;
 }
@@ -178,17 +196,23 @@
 
 .supInteraction {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.btnsSpecials {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: flex-end; */
 }
 
 .btnsInteraction {
   display: flex;
   flex-direction: row;
-  flex-basis: 50%;
-  gap: 10px;
+  /* flex-basis: 50%;
+  gap: 10px; */
 }
 
 .btnsInteraction {
@@ -197,15 +221,12 @@
 }
 
 .btnProgress {
-  display: gap;
   flex-grow: 1;
   place-content: center;
   margin-top: 1em;
 }
 
 .btnExit {
-  display: gap;
-  place-content: center;
   margin-top: 1em;
   width: 50%;
 }
@@ -228,6 +249,7 @@
   border: 1px solid transparent;
   border-radius: 1em;
   cursor: pointer;
+  /* width: 100%; */
 }
 
 .textBtn {

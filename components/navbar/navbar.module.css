@@ -41,7 +41,7 @@
   place-content: center;
   font-size: 20px;
   margin: 0;
-  color: #000;
+  color: var(--color-200);
   text-decoration: none;
   font-weight: 200;
 }
@@ -62,7 +62,7 @@
 .login {
   margin: 0;
   text-decoration: none;
-  color: #6c6c6c;
+  color: var(--color-400);
   cursor: pointer;
   border-radius: 1em;
   font-weight: 500;
@@ -71,7 +71,7 @@
 }
 
 .login:hover {
-  color: #000;
+  color: var(--color-100);
 }
 
 .iconOpenNav {

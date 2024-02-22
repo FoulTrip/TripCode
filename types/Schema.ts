@@ -5,7 +5,11 @@ export type ProgrammerRole =
   | "backendEngineer"
   | "projectManager";
 
-export type ProjectStatus = "planning" | "development" | "deployment";
+export type ProjectStatus =
+  | "planning"
+  | "development"
+  | "deployment"
+  | "decline";
 
 export type DockerStatus = "false" | "true";
 
@@ -81,9 +85,47 @@ export type ScalarProject = {
   status: ProjectStatus;
   dockerized: DockerStatus;
   engineers: string[];
-  ProjectManagerId: string;
+  ProjectManagerId: string | null;
   clientId: string;
+  repositoryId: string | null;
 };
+
+export type ScalarTask = {
+  id?: string;
+  nameTask: string;
+  descriptionTask: string;
+  completedBy: string[];
+  details: string;
+  status: boolean;
+  projectId: string;
+};
+
+export type RepositoryDetail = {
+  id?: string;
+  projectId: string;
+  repositoryUrl: string;
+  name: string;
+  description: string;
+  branch: string[];
+};
+
+// export type ScalarCommit = {
+//   id?: string;
+//   message: string;
+//   changes: string;
+//   authorId: string;
+//   timestamp: Date;
+//   projectId: string;
+//   branch: string;
+// };
+
+// export type File = {
+//   id: string;
+//   name: string;
+//   changes: string;
+//   commit: ScalarCommit;
+//   commitId: string;
+// };
 
 export type SoftwareEngineerProject = {
   id: string;
@@ -109,22 +151,4 @@ export type ProjectHistory = {
   developers: string;
   commits: string;
   completionDate: Date;
-};
-
-export type ScalarCommit = {
-  id?: string;
-  message: string;
-  changes: string;
-  authorId: string;
-  timestamp: Date;
-  projectId: string;
-  branch: string;
-};
-
-export type File = {
-  id: string;
-  name: string;
-  changes: string;
-  commit: ScalarCommit;
-  commitId: string;
 };

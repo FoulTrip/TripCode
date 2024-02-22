@@ -18,8 +18,6 @@ function Signin() {
     password: "",
   });
 
-  console.log(formData);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -36,11 +34,11 @@ function Signin() {
       const success = response.data.success;
       const data: AuthSession = response.data.data;
 
-      if (success) {
+      if (data) {
         setUserData(data);
         toast.success("Usuario encontrado");
         setTimeout(() => {
-          route.push("/");
+          route.push("/dashboard");
         }, 3000);
       } else {
         toast.error("Credenciales invalidas");

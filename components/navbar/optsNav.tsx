@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 import { useGlobalContext } from "@/context/Session";
 import UserOptions from "./UserOptions";
 import { useRouter } from "next/navigation";
+import BtnDarkChange from "../buttons/darklight/darkBtn";
 
 function OptsNav() {
   const { user } = useGlobalContext();
@@ -17,6 +18,7 @@ function OptsNav() {
   };
   return (
     <>
+      {/* <BtnDarkChange /> */}
       {!user?.role ? (
         <Link href="/developers" className={styles.login}>
           Working with us
@@ -32,6 +34,7 @@ function OptsNav() {
         </Link>
       )}
       <UserOptions />
+
       {/* <div onClick={handleLogout} className={styles.login}>
         Logout
       </div> */}

@@ -1,0 +1,103 @@
+.main {
+  min-height: 70vh;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding-top: 2em;
+  background: #585858;
+}
+
+.banner {
+  width: 90%;
+  margin-left: 5%;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.centerBanner {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  gap: 20px;
+}
+
+.partText {
+  flex-basis: 400px;
+  flex-grow: 1;
+  padding: 20px;
+  display: grid;
+  place-content: center;
+}
+
+.subPartText {
+  display: flex;
+  flex-direction: column;
+  /* color: #404040; */
+}
+
+.subSloganBanner {
+  font-family: "Fira Sans", sans-serif;
+  font-size: clamp(1rem, 1vw + 2rem, 3rem);
+  line-height: 1.25em;
+  color: var(--color-400);
+  font-weight: 600;
+}
+
+.slogan {
+  font-family: "Fira Sans", sans-serif;
+  margin-bottom: 1em;
+  font-weight: 100;
+  color: var(--color-50);
+}
+
+.partImg {
+  flex-basis: 400px;
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+}
+
+.imgMount {
+  width: 90%;
+  height: auto;
+}
+
+.boxBtn {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+}
+
+.btnVisit {
+  padding: 10px 20px 10px 20px;
+  background: teal;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  border-radius: 1em;
+  gap: 2px;
+}
+
+.boxIcon {
+  display: grid;
+  place-content: center;
+}
+
+.btnVisit:hover {
+  gap: 5px;
+}
+
+@media screen and (max-width: 900px) {
+  .banner {
+    flex-direction: column-reverse;
+  }
+
+  .imgWhiteScreen {
+    width: 100vw;
+  }
+
+  .subSlogan {
+    font-size: clamp(1rem, 1vw + 1rem, 3rem);
+  }
+}

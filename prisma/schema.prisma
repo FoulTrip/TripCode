@@ -32,7 +32,7 @@ model SoftwareEngineer {
     avatar                  String?
     role                    ProgrammerRole            @default(notDefined)
     projects                String[]
-    commits                 Commit[]
+    // commits                 Commit[]
     createdAt               DateTime                  @default(now())
     updatedAt               DateTime                  @updatedAt
     SoftwareEngineerProject SoftwareEngineerProject[]
@@ -88,16 +88,43 @@ model Project {
     dockerized              DockerStatus              @default(false)
     client                  Client                    @relation(fields: [clientId], references: [id])
     clientId                String
-    commits                 Commit[]
     engineers               String[]
     managers                ProjectManagerProject[]
     ProjectHistory          ProjectHistory[]
     requirements            ProjectRequirement[]
     ProjectManager          ProjectManager[]
-    ProjectManagerId        String
+    ProjectManagerId        String?
+    repositoryId            String?
     createdAt               DateTime                  @default(now())
     updatedAt               DateTime                  @updatedAt
     SoftwareEngineerProject SoftwareEngineerProject[]
+    RepositoryDetail        RepositoryDetail[]
+    Task                    Task[]
+}
+
+model RepositoryDetail {
+    id            String   @id @default(uuid()) @map("_id")
+    project       Project  @relation(fields: [projectId], references: [id])
+    projectId     String
+    repositoryUrl String
+    branch        String[]
+    name          String
+    description   String
+    createdAt     DateTime @default(now())
+    updatedAt     DateTime @updatedAt
+}
+
+model Task {
+    id              String   @id @default(uuid()) @map("_id")
+    nameTask        String
+    descriptionTask String
+    completedBy     String[]
+    details         String
+    status          Boolean
+    projectId       String
+    project         Project  @relation(fields: [projectId], references: [id])
+    createdAt       DateTime @default(now())
+    updatedAt       DateTime @updatedAt
 }
 
 model SoftwareEngineerProject {
@@ -130,27 +157,6 @@ model ProjectHistory {
     completionDate DateTime
 }
 
-model Commit {
-    id        String           @id @default(uuid()) @map("_id")
-    message   String
-    changes   String
-    author    SoftwareEngineer @relation(fields: [authorId], references: [id])
-    authorId  String
-    timestamp DateTime         @default(now())
-    project   Project          @relation(fields: [projectId], references: [id])
-    projectId String
-    branch    String
-    files     File[]
-}
-
-model File {
-    id       String @id @default(uuid()) @map("_id")
-    name     String
-    changes  String
-    commit   Commit @relation(fields: [commitId], references: [id])
-    commitId String
-}
-
 enum ProgrammerRole {
     notDefined
     frontendEngineer
@@ -162,6 +168,7 @@ enum ProjectStatus {
     planning
     development
     deployment
+    decline
 }
 
 enum DockerStatus {

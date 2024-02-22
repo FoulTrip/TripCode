@@ -1,0 +1,16 @@
+.containerBox {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.boxIcon, .hour {
+  display: grid;
+  place-content: center;
+  color: var(--color-400);
+  font-size: 15px;
+}
+
+.icon {
+    color: var(--color-400);
+}

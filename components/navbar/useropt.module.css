@@ -7,7 +7,7 @@
 }
 
 .containerUser:hover {
-  background: #dadada;
+  background: var(--color-500);
   border-radius: 1em;
 }
 

@@ -3,16 +3,23 @@ import React, { useState } from "react";
 interface BarOptsContextType {
   optSelect: string;
   setOptSelect: (opt: string) => void;
+  eventState: boolean;
+  setEventState: (state: boolean) => void;
 }
 
-const BarOptsContext = React.createContext<BarOptsContextType | undefined>(undefined);
+const BarOptsContext = React.createContext<BarOptsContextType | undefined>(
+  undefined
+);
 
 export function BarOptsProvider({ children }: { children: React.ReactNode }) {
   const [optSelect, setOptSelect] = useState("current");
+  const [eventState, setEventState] = useState(false);
 
   const contextValue: BarOptsContextType = {
     optSelect,
     setOptSelect,
+    eventState,
+    setEventState,
   };
 
   return (

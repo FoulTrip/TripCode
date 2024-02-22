@@ -1,0 +1,85 @@
+.mainInfoServices {
+  margin-top: 2em;
+  margin-bottom: 5em;
+}
+
+.titleServices {
+  font-size: clamp(1rem, 3.4783vw + 0.3043rem, 3rem);
+  line-height: 1.25em;
+  text-align: center;
+  margin-bottom: 2em;
+  font-weight: 500;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.pasarellServices {
+  width: 90%;
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.boxservice {
+  flex-basis: 300px;
+  flex-grow: 1;
+  display: grid;
+  place-content: center;
+  border: 3px solid transparent;
+  border-radius: 1em;
+}
+
+.boxservice:hover {
+  cursor: pointer;
+  border: 3px solid var(--color-50);
+}
+
+.centerBoxServices {
+  padding: 10px;
+  position: relative;
+}
+
+.boxImageServ {
+  display: grid;
+  place-content: center;
+}
+
+.iconService {
+  padding-top: 1em;
+  color: var(--color-700); /* Color gris por defecto */
+  filter: drop-shadow(2px 2px 2px #c1c1c1);
+  transition: filter 0.3s ease-in-out;
+}
+
+.boxservice:hover .iconService {
+  color: var(--color-50); /* Cambia a color al hacer hover */
+}
+
+.titleServiceBox {
+  display: grid;
+  place-content: center;
+  margin-top: 1em;
+  color: var(--color-50);
+  font-weight: 700;
+}
+
+.contReadMore {
+  display: grid;
+  place-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.btnReadMore {
+  padding: 5px 10px 5px 10px;
+  border-radius: 1em;
+  color: #7474ff;
+  font-weight: 500;
+}
+
+.explainService {
+  padding: 60px 40px 20px 30px;
+  position: relative;
+  text-align: center;
+}

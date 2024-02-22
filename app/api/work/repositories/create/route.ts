@@ -1,16 +1,18 @@
 import { NextResponse } from "next/server";
 import { Octokit } from "octokit";
 
-interface requestGit {
+export interface requestGit {
   org: string;
   name: string;
   description: string;
   isPrivate: boolean;
+  branches: string[];
 }
 
 export async function POST(req: Request) {
   try {
-    const { org, name, description, isPrivate }: requestGit = await req.json();
+    const { org, name, description, isPrivate, branches }: requestGit =
+      await req.json();
 
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN,
@@ -21,6 +23,7 @@ export async function POST(req: Request) {
       name: name,
       description: description,
       private: isPrivate,
+      branches: branches,
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
@@ -34,7 +37,7 @@ export async function POST(req: Request) {
     };
 
     return NextResponse.json({
-      //   repository: response.data,
+      repository: response.data,
       commands: cloneCommands,
     });
   } catch (error) {

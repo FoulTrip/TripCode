@@ -5,17 +5,17 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const { id } = await req.json();
-    console.log(id)
+    console.log(id);
     const project = await ProjectService.get(id);
 
     if (!project) {
       throw new Error("Proyecto no encontrado");
     }
 
-    return NextResponse.json(project);
+    return NextResponse.json({ success: true, data: project });
   } catch (error) {
     if (error instanceof Error) {
-      return NextResponse.json({ error: error.message });
+      return NextResponse.json({ success: false, error: error.message });
     }
   }
 }

@@ -11,10 +11,19 @@
   --color-900: #3d3d3d;
   --color-950: #292929;
 
-  color-scheme: light;
+  --color-icon-1: #3498db; /* Azul */
+  --color-icon-2: #2ecc71; /* Verde esmeralda */
+  --color-icon-3: #9b59b6; /* Morado */
+  --color-icon-4: #e74c3c; /* Rojo coral */
+  --color-icon-5: #27ae60; /* Verde esmeralda oscuro */
+  --color-icon-6: #8e44ad; /* Violeta oscuro */
+  --color-icon-7: #e67e22; /* Naranja */
+  --color-icon-8: #33e517; /* Rojo oscuro */
+
+  color-scheme: dark;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&display=swap");
 
 * {
   font-family: "Montserrat", sans-serif;
