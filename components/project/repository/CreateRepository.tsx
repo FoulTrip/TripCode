@@ -31,6 +31,7 @@ const extractData = (data: any) => {
 };
 
 function CreateRepository({ projectId }: { projectId: string }) {
+
   const [repoData, setRepoData] = useState<RepoData>({
     org: "CodeTripCode",
     name: "",
@@ -38,6 +39,7 @@ function CreateRepository({ projectId }: { projectId: string }) {
     branches: ["main", "develop"],
     isPrivate: false,
   });
+
   const [commands, setCommands] = useState<commandGit | null>(null);
 
   const handleCreateRepository = async () => {
@@ -48,9 +50,9 @@ function CreateRepository({ projectId }: { projectId: string }) {
       );
       const result = extractData(response.data.repository);
       const commands = response.data.commands;
-      console.log(commands);
+      // console.log(commands);
       setCommands(commands);
-      console.log(result);
+      // console.log(result);
 
       const reqBody: RepositoryDetail = {
         projectId,
@@ -65,17 +67,19 @@ function CreateRepository({ projectId }: { projectId: string }) {
       const newRepo = await axios.post("/api/proyects/repository/new", reqBody);
 
       const repoDates = newRepo.data;
-      console.log(repoDates);
+      // console.log(repoDates);
+
+      // console.log(projectId, repoDates.data.id)
 
       const updateProject = await axios.put(
         "/api/proyects/proyect/git/details",
         {
           projectId: projectId,
-          repositoryId: repoDates.id,
+          repositoryId: repoDates.data.id,
         }
       );
 
-      console.log(updateProject.data);
+      // console.log(updateProject.data);
 
       toast.success("Repository created successfully");
       console.log("Repository created successfully:", result);
@@ -99,6 +103,7 @@ function CreateRepository({ projectId }: { projectId: string }) {
   return (
     <>
       <Toaster />
+
       <div>
         <h1>Create Repository</h1>
         <label>Organization: {repoData.org}</label>
@@ -128,10 +133,12 @@ function CreateRepository({ projectId }: { projectId: string }) {
         </label>
         <button onClick={handleCreateRepository}>Create Repository</button>
       </div>
+
       <div>
         <p>Commands</p>
         {commands?.clone}
       </div>
+
     </>
   );
 }

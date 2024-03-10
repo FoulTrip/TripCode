@@ -30,6 +30,7 @@ function SettingProject({ params }: { params: { id: string } }) {
         <p>{proyectDates?.description}</p>
 
         <CreateRepository projectId={params.id} />
+        
       </div>
     </>
   );

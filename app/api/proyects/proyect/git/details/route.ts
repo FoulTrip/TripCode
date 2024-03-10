@@ -4,8 +4,10 @@ import { NextResponse } from "next/server";
 export async function PUT(req: Request) {
   try {
     const { projectId, repositoryId } = await req.json();
+    console.log(projectId, repositoryId);
+    const id = projectId;
     const updatedProject = await ProjectService.updateRepositoryId(
-      projectId,
+      id,
       repositoryId
     );
 

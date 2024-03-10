@@ -19,6 +19,7 @@ model Client {
     MeetingRequest MeetingRequest[]
     createdAt      DateTime         @default(now())
     updatedAt      DateTime         @updatedAt
+    PayProject     PayProject[]
 }
 
 model SoftwareEngineer {
@@ -100,6 +101,7 @@ model Project {
     SoftwareEngineerProject SoftwareEngineerProject[]
     RepositoryDetail        RepositoryDetail[]
     Task                    Task[]
+    PayProject              PayProject[]
 }
 
 model RepositoryDetail {
@@ -157,6 +159,25 @@ model ProjectHistory {
     completionDate DateTime
 }
 
+model PayProject {
+    id        String        @id @default(uuid()) @map("_id")
+    projectId String
+    Client    Client        @relation(fields: [clientId], references: [id])
+    clientId  String
+    Project   Project       @relation(fields: [projectId], references: [id])
+    status    PaymentStatus @default(pendingPay)
+    details   DetailPayProject[]
+}
+
+model DetailPayProject {
+    id           String      @id @default(uuid()) @map("_id")
+    name         String
+    description  String
+    price        Int
+    PayProject   PayProject @relation(fields: [payProjectId], references: [id])
+    payProjectId String
+}
+
 enum ProgrammerRole {
     notDefined
     frontendEngineer
@@ -180,4 +201,9 @@ enum MeetingStatus {
     pending
     scheduled
     completed
+}
+
+enum PaymentStatus {
+    pendingPay
+    paid
 }

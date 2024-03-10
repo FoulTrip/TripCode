@@ -70,7 +70,7 @@ export async function POST(req: Request) {
   try {
     const { org, repo }: requestGit = await req.json();
 
-    // console.log(org, repo);
+    console.log(org, repo);
 
     const octokit = new Octokit({
       auth: process.env.GITHUB_TOKEN,
@@ -84,7 +84,7 @@ export async function POST(req: Request) {
       },
     });
 
-    console.log(response.data);
+    console.log(response);
 
     const detailCommit = response.data.map((commit: responseCommit) => ({
       sha: commit.sha,

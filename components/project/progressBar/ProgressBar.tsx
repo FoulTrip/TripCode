@@ -20,6 +20,8 @@ function ProgressBar({ nameRepo }: { nameRepo: string }) {
     return src;
   };
 
+  console.log(nameRepo)
+
   useEffect(() => {
     const getCommits = async () => {
       try {

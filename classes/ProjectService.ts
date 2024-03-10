@@ -194,6 +194,7 @@ class ProjectService {
     id: string,
     repositoryId: string
   ): Promise<Project> {
+    console.log(id, repositoryId)
     return prisma.project.update({
       where: { id },
       data: { repositoryId },

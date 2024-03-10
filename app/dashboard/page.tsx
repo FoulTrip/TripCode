@@ -9,11 +9,13 @@ import { useNotifications } from "@/context/notifications";
 import { Toaster, toast } from "sonner";
 import { useWebSocket } from "next-ws/client";
 import { useGlobalContext } from "@/context/Session";
+import { useRouter } from "next/navigation";
 
 function Dashboard() {
   const { notifications, addNotification } = useNotifications();
   const ws = useWebSocket();
   const { user } = useGlobalContext();
+  const router = useRouter();
 
   useEffect(() => {
     if (ws) {
@@ -38,7 +40,7 @@ function Dashboard() {
     });
   }, [notifications]);
 
-  if (user) {
+  if (!user?.role) {
     return (
       <>
         <Toaster richColors />
@@ -51,6 +53,13 @@ function Dashboard() {
         </BarOptsProvider>
       </>
     );
+  } else if (
+    user.role == "notDefined" ||
+    user.role == "backendEngineer" ||
+    user.role == "frontendEngineer" ||
+    user.role == "projectManager"
+  ) {
+    router.push("/developers/panel");
   }
 }
 

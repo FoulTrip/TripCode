@@ -1,18 +1,22 @@
 [
-    {
-      "id": "1",
-      "name": "Tarea 1",
-      "completed": true
-    },
-    {
-      "id": "2",
-      "name": "Tarea 2",
-      "completed": false
-    },
-    {
-      "id": "3",
-      "name": "Tarea 3",
-      "completed": true
-    }
-  ]
-  
+  {
+    "id": "",
+    "projectId": "",
+    "clientId": "",
+    "status": "",
+    "details": [
+      {
+        "id": "",
+        "name": "",
+        "description": "",
+        "price": 300000
+      },
+      {
+        "id": "",
+        "name": "",
+        "description": "",
+        "price": 300000
+      }
+    ]
+  }
+]

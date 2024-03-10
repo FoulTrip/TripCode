@@ -15,6 +15,8 @@ export type DockerStatus = "false" | "true";
 
 export type MeetingStatus = "pending" | "scheduled" | "completed";
 
+export type PaymentStatus = "pendingPay" | "paid";
+
 // Define main types
 export type ScalarClient = {
   id?: string;
@@ -76,6 +78,20 @@ export type ProjectRequirement = {
   requirement: string;
   meetingRequestId: string;
   projectId: string;
+};
+
+export type PaymentProject = {
+  id?: string;
+  projectId: string;
+  clientId: string;
+};
+
+export type DetailPaymentProject = {
+  id?: string;
+  name: string;
+  description: string;
+  price: number;
+  payProjectId: string;
 };
 
 export type ScalarProject = {

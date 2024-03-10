@@ -36,11 +36,12 @@ function ProjectPage({ params }: { params: { id: string } }) {
         id: params.id,
       });
 
+      console.log(response)
+
       const data: RepositoryDetail = response.data.data[0];
       console.log(data.name);
       const name = data.name as string;
-      console.log(name);
-      setNameRepo(data.name);
+      setNameRepo(name);
     };
 
     getProject();
