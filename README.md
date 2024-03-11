@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div>
+  <table>
+    <tr>
+      <td><img src="https://res.cloudinary.com/df2gu30lb/image/upload/v1709795888/logo-tripcode_hoo2vp.png" width="100" height="100"></td>
+      <td align="left"><h1>TripCode (Startup B2B)</h1></td>
+    </tr>
+  </table>
+</div>
 
-## Getting Started
+## Descripción
+Esta es una plataforma B2B que simplifica el desarrollo de software, sitios web y aplicaciones. A partir de la solicitud del cliente, nuestros gerentes de proyecto acuerdan los requisitos en reuniones personalizadas. Luego crean proyectos en GitHub, asignando hasta dos desarrolladores por proyecto, visibles en sus paneles individuales. Una solución integral que optimiza la comunicación y la gestión de proyectos, aumentando la eficiencia y la satisfacción del cliente.
 
-First, run the development server:
+## Tecnologías
+La aplicación está creada con las siguientes tecnologías:
+
+ - Next.js 13: Un marco de trabajo de React que permite funcionalidades como la generación de sitios estáticos y la representación del lado del servidor.
+ - TypeScript: Un superconjunto de JavaScript que añade tipado estático y objetos basados en clases.
+ - Prisma: Un ORM de Node.js y TypeScript para bases de datos SQL y NoSQL.
+ - MongoDB: Una base de datos NoSQL, orientada a documentos y de código abierto.
+
+## Instalación
+Para instalar y ejecutar esta aplicación, necesitarás Node.js y npm instalados en tu computadora. A continuación, puedes seguir estos pasos:
+
+ - Clona este repositorio
+ - Instala las dependencias con `npm install`
+ - Ejecuta la aplicación con `npm run dev`
+## Cómo Utilizar Este Proyecto
+
+#### Clonar el Repositorio:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    git clone https://github.com/FoulTrip/TripCode.git
+    cd tripcode
+```
+#### Instalar Dependencias:
+
+```bash
+    npm install
+```
+#### Generar Claves VAPID para (Service Worker):
+
+```bash
+    npx web-push generate-vapid-keys
+```
+Copia las claves generadas y agrégales a tu archivo .env.
+
+#### Generar Claves API de paypal | https://developer.paypal.com/home
+Copia el CLIENT_ID y SECRET_KEY y pegalos en .env
+
+#### Ejecutar la Aplicación:
+
+```bash
+    npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
