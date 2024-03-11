@@ -108,12 +108,13 @@ export type ScalarProject = {
 
 export type ScalarTask = {
   id?: string;
-  nameTask: string;
+  name: string;
   descriptionTask: string;
   completedBy: string[];
   details: string;
   status: boolean;
   projectId: string;
+  completed: boolean;
 };
 
 export type RepositoryDetail = {

@@ -2,7 +2,7 @@
 
 import { RepositoryDetail, ScalarProject } from "@/types/Schema";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import styles from "./page.module.css";
 import ProgressBar from "@/components/project/progressBar/ProgressBar";
 import Navbar from "@/components/navbar/NavBar";
@@ -13,6 +13,7 @@ import { IoCheckmarkCircle, IoCog } from "react-icons/io5";
 
 import tasks from "@/components/json/Tasks.json";
 import { useGlobalContext } from "@/context/Session";
+import PayComponent from "@/components/project/pay/PayComponent";
 
 function ProjectPage({ params }: { params: { id: string } }) {
   const [projectDetails, setProjectDetails] = useState<ScalarProject | null>(
@@ -36,7 +37,7 @@ function ProjectPage({ params }: { params: { id: string } }) {
         id: params.id,
       });
 
-      console.log(response)
+      console.log(response);
 
       const data: RepositoryDetail = response.data.data[0];
       console.log(data.name);
@@ -81,7 +82,7 @@ function ProjectPage({ params }: { params: { id: string } }) {
             text={projectDetails?.dockerized == "true" ? "Si" : "No"}
             copy={false}
           />
-          
+
           <p>
             Engeeners:
             {projectDetails?.engineers &&
@@ -124,6 +125,8 @@ function ProjectPage({ params }: { params: { id: string } }) {
               ) : null}
             </div>
           ) : null}
+
+          <PayComponent userId={user?.id} />
         </div>
       </div>
     </>

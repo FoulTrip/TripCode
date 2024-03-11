@@ -32,13 +32,13 @@
   justify-content: space-between;
   padding: 10px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-  background: var(--color-100);
+  background: var(--color-700);
   border-radius: 10px;
 }
 
 .boxTask:hover {
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-  background: var(--color-200);
+  background: var(--color-600);
 }
 
 .nameProgresscard {
@@ -64,7 +64,7 @@
 }
 
 .expand:hover {
-  color: var(--color-950);
+  color: var(--color-600);
 }
 
 .iconCheck {
@@ -72,7 +72,7 @@
 }
 
 .iconCog {
-  color: var(--color-700);
+  color: var(--color-300);
 }
 
 .title {

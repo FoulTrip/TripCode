@@ -1,22 +1,22 @@
 [
   {
-    "id": "",
-    "projectId": "",
-    "clientId": "",
-    "status": "",
-    "details": [
-      {
-        "id": "",
-        "name": "",
-        "description": "",
-        "price": 300000
-      },
-      {
-        "id": "",
-        "name": "",
-        "description": "",
-        "price": 300000
-      }
-    ]
+    "id": "1",
+    "name": "Task 1",
+    "descriptionTask": "This is task 1",
+    "completedBy": ["user1", "user2"],
+    "details": "These are the details for task 1",
+    "status": true,
+    "projectId": "project1",
+    "completed": false
+  },
+  {
+    "id": "2",
+    "name": "Task 2",
+    "descriptionTask": "This is task 2",
+    "completedBy": ["user1", "user2"],
+    "details": "These are the details for task 2",
+    "status": true,
+    "projectId": "project2",
+    "completed": true
   }
 ]
