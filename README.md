@@ -1,7 +1,7 @@
-<p align="center">
+<p style="display: grid; place-content: center">
   <table>
     <tr>
-      <td><img src="https://res.cloudinary.com/df2gu30lb/image/upload/v1709795888/logo-tripcode_hoo2vp.png" width="100" height="100"></td>
+      <td style="border: none;"><img src="https://res.cloudinary.com/df2gu30lb/image/upload/v1709795888/logo-tripcode_hoo2vp.png" width="100" height="100"></td>
       <td align="left"><h1>TripCode (Startup B2B)</h1></td>
     </tr>
   </table>
