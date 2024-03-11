@@ -1,6 +1,6 @@
-<img src="https://res.cloudinary.com/df2gu30lb/image/upload/v1709795888/logo-tripcode_hoo2vp.png" width="100" height="100">
-
-# TripCode (Startup B2B)
+| <img src="https://res.cloudinary.com/df2gu30lb/image/upload/v1709795888/logo-tripcode_hoo2vp.png" width="100" height="100"> |
+|:--:|
+| **TripCode (Startup B2B)** |
 
 ## Descripción
 Esta es una plataforma B2B que simplifica el desarrollo de software, sitios web y aplicaciones. A partir de la solicitud del cliente, nuestros gerentes de proyecto acuerdan los requisitos en reuniones personalizadas. Luego crean proyectos en GitHub, asignando hasta dos desarrolladores por proyecto, visibles en sus paneles individuales. Una solución integral que optimiza la comunicación y la gestión de proyectos, aumentando la eficiencia y la satisfacción del cliente.
