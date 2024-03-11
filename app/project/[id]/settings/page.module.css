@@ -1,0 +1,21 @@
+.ContainerSettings {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.boxSetting {
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.boxSubConf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .boxSubConf {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}

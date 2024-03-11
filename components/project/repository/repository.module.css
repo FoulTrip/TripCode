@@ -1,0 +1,129 @@
+.supBoxRepo {
+  background: #302e35;
+  padding: 20px;
+  border-radius: 16px;
+  object-fit: contain;
+  border: 1px solid var(--color-600);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.supBoxRepo:hover {
+  border: 1px solid var(--color-500);
+}
+
+.titleCreate {
+  margin-bottom: 10px;
+  display: grid;
+  place-content: center;
+}
+
+.boxDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.org {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.iconGithub {
+  filter: drop-shadow(0px 0px 10px #fff);
+}
+
+.normalCard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.normalCard h3 {
+  font-weight: 400;
+}
+
+.centerOrg {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.centerOrg h3,
+.centerOrg p {
+  display: grid;
+  place-content: center;
+}
+
+.boxDetails input {
+  padding: 5px 10px;
+  font-size: 16px;
+  color: var(--color-300);
+  outline: none;
+  border-radius: 6px;
+  border: none;
+  width: 94%;
+  border: 1px solid #fff;
+}
+
+.boxPrivateRepo {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1em;
+}
+
+.centerPrivateRepo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.centerPrivateRepo h3 {
+  display: grid;
+  place-content: center;
+  font-weight: 400;
+}
+
+.checkbox {
+  display: grid;
+  place-content: center;
+}
+
+.checkboxInp {
+  padding: 5px;
+}
+
+.centerBtn {
+  display: grid;
+  place-content: center;
+  margin-bottom: 1em;
+}
+
+.centerBtn button {
+  padding: 5px 10px;
+  background: #60b478;
+  border: none;
+  border-radius: 8px;
+}
+
+.centerBtn button:hover {
+  background: #4bb268;
+}
+
+.titleCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.iconCard {
+  display: grid;
+  place-content: center;
+}
+
+.infoBox {
+  display: grid;
+  place-content: center;
+}

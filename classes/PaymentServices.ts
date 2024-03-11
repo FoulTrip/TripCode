@@ -16,6 +16,21 @@ class PaymentService {
   }
 
   /**
+   * Find all projects where a SoftwareEngineer ID is involved.
+   * @param softwareEngineerId - The ID of the Software Engineer.
+   * @returns Promise<Project[]>
+   */
+  static async getDetailsProjectPayByPayProjectId(
+    payProjectId: string
+  ): Promise<DetailPayProject[]> {
+    return prisma.detailPayProject.findMany({
+      where: {
+        payProjectId,
+      },
+    });
+  }
+
+  /**
    * Agrega más detalles a una orden de pago existente.
    * @param data - Los datos del nuevo detalle para agregar.
    * @returns Promise<DetailPaymentProject>

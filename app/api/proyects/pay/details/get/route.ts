@@ -4,22 +4,14 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const data: DetailPaymentProject = await req.json();
-    console.log(data);
+    const { payProjectId }: { payProjectId: string } = await req.json();
 
-    if (!data.payProjectId) {
-      throw new Error("missing `payProjectId` parameter");
-    } else if (!data.payProjectId) {
+    if (!payProjectId) {
       throw new Error("missing `payProjectId` parameter");
     }
 
-    const dataReq = {
-      ...data,
-      price: data.price.toString,
-    };
-
-    const updatedPayment = await PaymentService.addDetails(data);
-    console.log(updatedPayment);
+    const updatedPayment =
+      await PaymentService.getDetailsProjectPayByPayProjectId(payProjectId);
 
     return NextResponse.json({ success: true, data: updatedPayment });
   } catch (error) {

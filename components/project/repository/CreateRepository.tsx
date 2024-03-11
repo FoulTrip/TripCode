@@ -1,8 +1,12 @@
+"use client"
+
 import { RepositoryDetail } from "@/types/Schema";
 import axios from "axios";
 import React, { useState, ChangeEvent } from "react";
 import { Toaster, toast } from "sonner";
-// import { requestGit } from "@/app/api/work/repositories/create/route";
+import { IoLogoGithub } from "react-icons/io";
+import styles from "./repository.module.css";
+import { IoIosInformationCircle } from "react-icons/io";
 
 interface RepoData {
   org: string;
@@ -31,7 +35,6 @@ const extractData = (data: any) => {
 };
 
 function CreateRepository({ projectId }: { projectId: string }) {
-
   const [repoData, setRepoData] = useState<RepoData>({
     org: "CodeTripCode",
     name: "",
@@ -104,41 +107,62 @@ function CreateRepository({ projectId }: { projectId: string }) {
     <>
       <Toaster />
 
-      <div>
-        <h1>Create Repository</h1>
-        <label>Organization: {repoData.org}</label>
-        <label>
-          Repository Name:
-          <input
-            type="text"
-            value={repoData.name}
-            onChange={handleNameChange}
-          />
-        </label>
-        <label>
-          Description:
-          <input
-            type="text"
-            value={repoData.description}
-            onChange={handleDescriptionChange}
-          />
-        </label>
-        <label>
-          Private:
-          <input
-            type="checkbox"
-            checked={repoData.isPrivate}
-            onChange={handlePrivateChange}
-          />
-        </label>
-        <button onClick={handleCreateRepository}>Create Repository</button>
-      </div>
+      <div className={styles.supBoxRepo}>
+        <div>
+          <div className={styles.titleCard}>
+            <h3 className={styles.titleCreate}>
+              Create Repository by {repoData.org}
+            </h3>
+            <div className={styles.iconCard}>
+              <IoLogoGithub size={30} className={styles.iconGithub} />
+            </div>
+          </div>
+          <p>
+            Un repositorio contiene todos los archivos de tu proyecto, el
+            historial de revisiones y las discusiones de los colaboradores.
+          </p>
+        </div>
+        <div className={styles.boxDetails}>
+          <div className={styles.normalCard}>
+            <h3>Name</h3>
+            <input
+              type="text"
+              value={repoData.name}
+              onChange={handleNameChange}
+            />
+          </div>
 
-      <div>
-        <p>Commands</p>
-        {commands?.clone}
-      </div>
+          <div className={styles.normalCard}>
+            <h3>Description</h3>
+            <input
+              type="text"
+              value={repoData.description}
+              onChange={handleDescriptionChange}
+            />
+          </div>
 
+          <div className={styles.boxPrivateRepo}>
+            <div className={styles.centerPrivateRepo}>
+              <h3>Private</h3>
+              <div className={styles.checkbox}>
+                <input
+                  className={styles.checkboxInp}
+                  type="checkbox"
+                  checked={repoData.isPrivate}
+                  onChange={handlePrivateChange}
+                />
+              </div>
+              <div className={styles.infoBox}>
+                <IoIosInformationCircle />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.centerBtn}>
+          <button onClick={handleCreateRepository}>Create Repository</button>
+        </div>
+      </div>
     </>
   );
 }
