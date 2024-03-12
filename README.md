@@ -38,6 +38,11 @@ Para instalar y ejecutar esta aplicación, necesitarás Node.js y npm instalados
 ```bash
     npm install
 ```
+
+### Configurar Prisma 
+Este comando genera un cliente Prisma basado en tu archivo de esquema Prisma `schema.prisma` ubicado en `./prisma/`. Este cliente Prisma te permite interactuar con tu base de datos en la aplicación.
+`npx prisma generate --schema=./prisma/schema.prisma`
+
 #### Generar Claves VAPID para (Service Worker):
 
 ```bash
