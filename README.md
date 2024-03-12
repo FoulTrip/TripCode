@@ -61,3 +61,5 @@ Copia el `CLIENT_ID` y `SECRET_KEY` y pegalos en .env
 npm run dev
 ```
 
+# Notas
+Por favor, ten en cuenta que este repositorio contiene un frontend básico de la aplicación full stack. No se ha realizado un trabajo de diseño de UI/UX. El objetivo principal de este repositorio es demostrar la funcionalidad y la lógica del frontend conectandose al backend, no la estética o la experiencia del usuario.
