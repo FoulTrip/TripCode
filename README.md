@@ -30,34 +30,34 @@ Para instalar y ejecutar esta aplicación, necesitarás Node.js y npm instalados
 #### Clonar el Repositorio:
 
 ```bash
-    git clone https://github.com/FoulTrip/TripCode.git
-    cd tripcode
+git clone https://github.com/FoulTrip/TripCode.git
+cd tripcode
 ```
 #### Instalar Dependencias:
 
 ```bash
-    npm install
+npm install
 ```
 
 ### Configurar Prisma 
 Este comando genera un cliente Prisma basado en tu archivo de esquema Prisma `schema.prisma` ubicado en `./prisma/`. Este cliente Prisma te permite interactuar con tu base de datos en la aplicación.
 ```bash 
-    npx prisma generate --schema=./prisma/schema.prisma
+npx prisma generate --schema=./prisma/schema.prisma
 ```
 
 #### Generar Claves VAPID para (Service Worker):
 
 ```bash
-    npx web-push generate-vapid-keys
+npx web-push generate-vapid-keys
 ```
 Copia las claves generadas y agrégales a tu archivo .env.
 
 #### Generar Claves API de paypal | https://developer.paypal.com/home
-Copia el CLIENT_ID y SECRET_KEY y pegalos en .env
+Copia el `CLIENT_ID` y `SECRET_KEY` y pegalos en .env
 
 #### Ejecutar la Aplicación:
 
 ```bash
-    npm run dev
+npm run dev
 ```
 
