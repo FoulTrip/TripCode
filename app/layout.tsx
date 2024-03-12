@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GlobalProvider } from "@/context/Session";
-import { WebSocketProvider } from "next-ws/client";
 import { NotificationProvider } from "@/context/notifications";
 import ProvidersLoading from "@/context/ProviderLoading";
 
@@ -23,13 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ProvidersLoading>
-        <WebSocketProvider url="ws://localhost:3000/api/ws">
-          <GlobalProvider>
-            <NotificationProvider>
-              <body className={inter.className}>{children}</body>
-            </NotificationProvider>
-          </GlobalProvider>
-        </WebSocketProvider>
+        <GlobalProvider>
+          <NotificationProvider>
+            <body className={inter.className}>{children}</body>
+          </NotificationProvider>
+        </GlobalProvider>
       </ProvidersLoading>
     </html>
   );
