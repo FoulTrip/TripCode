@@ -23,6 +23,7 @@ Para instalar y ejecutar esta aplicación, necesitarás Node.js y npm instalados
 
  - Clona este repositorio
  - Instala las dependencias con `npm install`
+ - Configura Prisma con `npx prisma generate --schema=./prisma/schema.prisma`
  - Ejecuta la aplicación con `npm run dev`
 ## Cómo Utilizar Este Proyecto
 
